@@ -5,20 +5,23 @@ package com.kodilla.testing;
 public class TestingMain {
     public static void main(String[] args) {
 
-        Calculator calculator = new Calculator(15, 10);
-        int add = calculator.add();
-        int sub = calculator.sub();
+        Calculator calculator = new Calculator();
+        Calculator calculator2 = new Calculator();
 
-        if(add == 25) {
-            System.out.println("test ok");
+        int add2 = calculator.add(15, 10);
+        int sub2 = calculator2.sub(10, 10);
+
+        if(add2 == 25) {
+            System.out.println("Test OK");
         } else {
-            System.out.println("Error!");
+            System.out.println("Error");
         }
 
-        if(sub == 5) {
-            System.out.println("Test ok");
-        }   else {
-            System.out.println("Error!");
+        if(sub2 == 0) {
+            System.out.println("Test OK");
+        } else {
+            System.out.println("Error");
         }
+
     }
 }
