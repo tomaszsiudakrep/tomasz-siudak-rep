@@ -5,6 +5,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +18,7 @@ public class CollectionTestSuite {
 
     private static OddNumbersExterminator oddNumbersExterminator;
 
-    @Before
+    @BeforeEach
     public void before(){
         System.out.println("Test Case: begin");
     }
@@ -31,6 +33,7 @@ public class CollectionTestSuite {
         oddNumbersExterminator = new OddNumbersExterminator();
     }
 
+    @DisplayName("Test Odd Numbers")
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
@@ -55,6 +58,7 @@ public class CollectionTestSuite {
         assertEquals(expectedResultList, resultList);
     }
 
+    @DisplayName("Test Empty List")
     @Test
     public void testOddNumbersExterminatorEmptyList(){
         //Given
