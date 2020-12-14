@@ -46,7 +46,7 @@ public class StreamMain {
         String text4 = poemBeautifier.beautify(" This text is great ", (text -> text.repeat(3)));
         System.out.println(text4);
 
-        //String text5 = poemBeautifier.beautify("This text is great - ", (text -> text.concat(String.valueOf(text.hashCode()))));
-        //System.out.println(text5);
+        String text5 = poemBeautifier.beautify("This text is great - ", (text -> text.concat(String.valueOf(text.hashCode()))));
+        System.out.println(text5);
     }
 }
