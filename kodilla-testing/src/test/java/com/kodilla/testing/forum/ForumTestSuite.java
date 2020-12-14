@@ -1,48 +1,64 @@
-/*
-
 package com.kodilla.testing.forum;
 
 import com.kodilla.testing.user.SimpleUser;
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.;
+import org.junit.jupiter.api.*;
+
 
 @DisplayName("Forum test Suite")
-class ForumTestSuite {
+public class ForumTestSuite {
 
-    @BeforeEach
-    public void before() {
-        System.out.println("Test case: begin");
-    }
-    @AfterEach
-    public void after() {
-        System.out.println("Test case : end");
-    }
     @BeforeAll
-    public void beforeAll() {
-        System.out.println("Test suite: begin");
+    public static void beforeAll(){
+        System.out.println("Start testing..");
     }
+    @Before
+    public void before() {
+        System.out.println("Start new test...");
+    }
+
+
+
+    @After
+    public void after() {
+        System.out.println("Test case is done..");
+    }
+
     @AfterAll
-    public void afterAll {
-        System.out.println("Test suite: end");
+    public static void afterAll(){
+        System.out.println("Tests is finished");
     }
-    @DisplayName(
-            "When created SimpleUser with name, " + "then etUsername should return correct name"
-    )
 
     @Test
-    void testCaseUsername() {
+    public void testCasRealname() {
         //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
+        SimpleUser simpleUser = new SimpleUser("Tom", "Tomasz Siudak");
+        String resultReal = "Tomasz Siudak";
 
-        // When
+        //When
+        String expectedReal = simpleUser.getRealName();
+
+        //Then
+        Assertions.assertEquals(expectedReal, resultReal);
+    }
+
+    @Test
+    public void testCaseUsername() {
+        //Given
+        SimpleUser simpleUser = new SimpleUser("Ewc", "Ewa Lalewicz");
+
+        //When
         String result = simpleUser.getUsername();
-        String expectedResult = "theForumUser";
+        String expectedResult = "Ewc";
 
-        // Then
+        //Then
         Assertions.assertEquals(expectedResult, result);
     }
+
+
+
 }
-*/

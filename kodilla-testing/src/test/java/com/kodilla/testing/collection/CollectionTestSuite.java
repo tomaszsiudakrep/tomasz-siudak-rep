@@ -3,72 +3,54 @@ package com.kodilla.testing.collection;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+@DisplayName("Tetsy")
 public class CollectionTestSuite {
 
     private static OddNumbersExterminator oddNumbersExterminator;
 
-    @BeforeEach
-    public void before(){
-        System.out.println("Test Case: begin");
-    }
-
-    @AfterEach
-    public void after(){
-        System.out.println("Test Case: end");
-    }
-
     @BeforeClass
-    public static void beforeClass(){
+    public static void beforeClass() {
         oddNumbersExterminator = new OddNumbersExterminator();
-    }
 
-    @DisplayName("Test Odd Numbers")
+    }
     @Test
-    public void testOddNumbersExterminatorNormalList(){
+    public void testParzyste() {
         //Given
-        ArrayList<Integer> normalList = new ArrayList<>();
-        normalList.add(1);
-        normalList.add(2);
-        normalList.add(3);
-        normalList.add(4);
-        normalList.add(5);
-        normalList.add(6);
-        normalList.add(12);
+    List<Integer> normalList = new ArrayList<>();
+    normalList.add(1);
+    normalList.add(2);
+    normalList.add(3);
+    normalList.add(4);
+    normalList.add(5);
+    normalList.add(6);
 
-        ArrayList<Integer>expectedResultList = new ArrayList<>();
-        expectedResultList.add(2);
-        expectedResultList.add(4);
-        expectedResultList.add(6);
-        expectedResultList.add(12);
+    List<Integer> expectedList = new ArrayList<>();
+    expectedList.add(2);
+    expectedList.add(4);
+    expectedList.add(6);
+
         //When
-        List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
-        System.out.println("Testing normal list");
+    List<Integer> result = oddNumbersExterminator.exterminate(normalList);
         //Then
-        assertEquals(expectedResultList, resultList);
+        Assertions.assertEquals(result, expectedList);
     }
 
-    @DisplayName("Test Empty List")
     @Test
-    public void testOddNumbersExterminatorEmptyList(){
+    public void empty() {
         //Given
-
-        ArrayList<Integer> emptyList = new ArrayList<>();
+    List<Integer> emptyList = new ArrayList<>();
         //When
-        List<Integer> resultList = oddNumbersExterminator.exterminate(emptyList);
-        System.out.println("Testing empty list");
+    List<Integer> resultEmpty = oddNumbersExterminator.exterminate(emptyList);
         //Then
-        assertEquals(emptyList, resultList);
+        Assertions.assertEquals(resultEmpty, emptyList);
     }
+
 
 }
