@@ -1,4 +1,4 @@
-/*package com.kodilla.testing.weather.mock;
+package com.kodilla.testing.weather.mock;
 
 import com.kodilla.testing.weather.stub.Temperatures;
 import com.kodilla.testing.weather.stub.WeatherForecast;
@@ -19,4 +19,3 @@ public class WeatherForecastTestSuite {
          Assertions.assertEquals(5, quantityOfSensors);
     }
 }
-*/
