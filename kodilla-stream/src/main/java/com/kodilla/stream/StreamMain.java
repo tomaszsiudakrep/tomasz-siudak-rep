@@ -1,9 +1,40 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
+
+        Forum forum = new Forum();
+
+        Map<Integer, ForumUser> theResultMapOfForumUser = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getBirthDay().getYear() < 2000)
+                .filter(forumUser -> forumUser.getAmountPublicPosts() > 0)
+                .collect(Collectors.toMap(ForumUser::getIdentifier, forumUser -> forumUser));
+
+        System.out.println("# Elements: " + theResultMapOfForumUser.size());
+        theResultMapOfForumUser.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
+
+    }
+}
+
+//            Map<String, Book> theResultMapOfBooks = bookDirectory.getList().stream()
+//                    .filter(book -> book.getYearOfPublication() > 2005)
+//                    .collect(Collectors.toMap(Book::getSignature, book -> book));
+//
+//            System.out.println("# Elements: " + theResultMapOfBooks.size());
+//            theResultMapOfBooks.entrySet().stream()
+//                    .map(entry -> entry.getKey() + ": " + entry.getValue())
+//                    .forEach(System.out::println);
+
+
        // Processor processor = new Processor();
         //ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
         //Executor codeToExecute = () -> System.out.println("This is an example text");
@@ -51,7 +82,39 @@ public class StreamMain {
         System.out.println(text5);
         */
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20 ");
-        NumbersGenerator.generateEven(20);
-    }
-}
+        //System.out.println("Using Stream to generate even numbers from 1 to 20 ");
+       // NumbersGenerator.generateEven(20);
+
+//        People.getList().stream()
+//                .map(s -> s.toUpperCase())
+//                .filter(s -> s.length() > 11)
+//                .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
+//                .filter(s -> s.substring(0, 1).equals("T"))
+//                .forEach(System.out::println);
+
+            //BookDirectory bookDirectory = new BookDirectory();
+
+            //List<Book> theResultListOfBooks = bookDirectory.getList().stream()
+            //bookDirectory.getList().stream()
+                  //  .filter(book -> book.getYearOfPublication() > 2008)
+                  //  .collect(Collectors.toList());
+
+            //System.out.println("# Elements: " + theResultListOfBooks.size());
+            //theResultListOfBooks.stream()
+                   // .forEach(System.out::println);
+
+//            Map<String, Book> theResultMapOfBooks = bookDirectory.getList().stream()
+//                    .filter(book -> book.getYearOfPublication() > 2005)
+//                    .collect(Collectors.toMap(Book::getSignature, book -> book));
+//
+//            System.out.println("# Elements: " + theResultMapOfBooks.size());
+//            theResultMapOfBooks.entrySet().stream()
+//                    .map(entry -> entry.getKey() + ": " + entry.getValue())
+//                    .forEach(System.out::println);
+
+//            String theResultStringOfBooks = bookDirectory.getList().stream()
+//                    .filter(book -> book.getYearOfPublication() > 2005)
+//                    .map(Book::toString)
+//                    .collect(Collectors.joining(" ,\n", "<<",">>"));
+//            System.out.println(theResultStringOfBooks);
+
