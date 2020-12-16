@@ -16,13 +16,13 @@ public class App {
 
         HashMap<Student, Grades> dziennik = new HashMap<>();
 
-        dziennik.put(student, grades);
-        dziennik.put(student1, grades1);
-        dziennik.put(student2, grades2);
-
-
-
-        System.out.println(dziennik.get(student));
+//        com.kodilla.testing.mapaUczniow.Grades put = dziennik.put(student, grades);
+//        dziennik.put(student1, grades1);
+//        dziennik.put(student2, grades2);
+//
+//
+//
+//        System.out.println(dziennik.get(student));
 
         grades.average();
         grades1.average();
