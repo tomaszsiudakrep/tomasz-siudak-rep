@@ -22,8 +22,6 @@ public final class World {
         BigDecimal totalPeople = listOfContinent.stream()
                 .flatMap(continent1 -> continent1.getListOfCountry().stream())
                 .map(Country::getPeopleQuantity)
-                .collect(Collectors.toSet())
-                .stream()
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
 
         return totalPeople;
